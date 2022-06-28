@@ -122,14 +122,16 @@ def mascotasformulario (request):
     return render(request,"mascotasFormulario.html",{"miFormulario":miFormulario}) #Envia a la pagina HTML, con el formulario vacio
 
 def mascotabuscar (request):
-  if  request.GET["mombre"]: #if request.method == 'Get':
+  if  request.GET['serch']: #if request.method == 'Get':
 
 	    #respuesta = f"Estoy buscando la camada nro: {request.GET['camada'] }" 
-        nombremascota = request.GET['nombre'] 
+        nombremascota = request.GET['serch'] 
         print(nombremascota)
         mascotas = Mascotas.objects.filter(nombre__icontains=nombremascota)
         print(mascotas)
-        return render(request, "mascotabuscar.html", {"nombre":nombremascota,"tipo":mascotas})
+        contexto = {"mascotas":mascotas}
+        #return render(request, "mascotabuscar.html", {"nombre":nombremascota,"tipo":mascotas})
+        return render(request, "mascotabuscar.html", context = contexto)
   else: 
     respuesta = "No enviaste datos"
     #No olvidar from django.http import HttpResponse
