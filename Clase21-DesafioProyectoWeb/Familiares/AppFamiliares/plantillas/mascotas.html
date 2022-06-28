@@ -1,0 +1,23 @@
+{% extends "padre.html" %}
+
+{% load static %} <!-- Carpeta copiada de el html descargado de boostrack-->
+
+{% block contenidoQueCambia %}
+
+<div>
+    <h1> Listado de Mascotas </h1>
+    
+      
+            {% for m in mascotas %}
+            
+                <p style="color:green"> Mascota = {{m.nombre}} es un {{m.Tipo}}</p> 
+                
+            {% endfor %}
+      
+     <br>
+     <a href="mascotasformulario">Agregar mascota</a>   
+   
+</div>
+
+
+{% endblock %}

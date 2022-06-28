@@ -1,0 +1,28 @@
+{% extends "padre.html" %}
+
+{% load static %} <!-- Carpeta copiada de el html descargado de boostrack-->
+
+{% block contenidoQueCambia %}
+
+<div>
+    <h1> Busqueda de Amigos por nombre </h1>
+    
+    <form action="/AppFamiliares/amigosbuscar/" method="GET">
+
+        <input type="text" name="nombre" id="nombre">
+
+        <input type="submit" value="Buscar">
+
+    </form>
+
+       
+        {% for amigo in amigos %}
+        
+            <p style="color:green"> Mi amigo es = {{amigo.nombre}} {{amigo.apellido}}</p> 
+                                           
+        {% endfor %}
+    
+    
+</div>
+
+{% endblock %}

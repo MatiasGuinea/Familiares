@@ -1,0 +1,28 @@
+{% extends "padre.html" %}
+
+{% load static %} <!-- Carpeta copiada de el html descargado de boostrack-->
+
+{% block contenidoQueCambia %}
+
+<div>
+    <h1> Busqueda de Mascotas por nombre </h1>
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <!-- <p>Curso: <input type="text" name="nombre" id="" maxlength="30"> </p> -->
+        <input type="text" name="nombre" id="">
+
+        <input type="submit" value="Buscar">
+    </form>
+
+<p>Resultados: </p>
+<ul>
+    {% for resultado in mascotas %}
+        <li>{{resultado.nombre}} [{{ resultado.tipo }}]</li>
+    {% endfor %}
+</ul>
+      
+    
+</div>
+
+{% endblock %}

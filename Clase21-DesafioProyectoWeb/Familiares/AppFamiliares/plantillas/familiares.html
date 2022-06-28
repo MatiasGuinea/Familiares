@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+
+{% load static %} <!-- Carpeta copiada de el html descargado de boostrack-->
+
+{% block contenidoQueCambia %}
+
+<div>
+    <h1> Listado de Familiares </h1>
+    
+      
+            {% for persona in familiares %}
+            
+                {% if persona.edad > 65 %}
+                    <p style="color:green"> Familiar jubilado = {{persona.nombre}} {{persona.apellido}}, edad {{persona.edad}}, nacio el {{persona.fecha_nacimiento}}</p> 
+                {% else %} 
+                    <p style="color:blue"> Familiar NO jubilado = {{persona.nombre}} {{persona.apellido}}, edad {{persona.edad}}, nacio el {{persona.fecha_nacimiento}}</p> 
+                {% endif %}
+                                               
+            {% endfor %}
+      
+     <br>
+     <a href="familiaresformulario">Agregar Familiar</a>   
+   
+</div>
+
+{% endblock %}
